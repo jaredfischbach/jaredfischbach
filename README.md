@@ -1,6 +1,6 @@
 <a href="https://github.com/jaredfischbach">
   <img
-    height="195"
+    height="190"
     align="center"
     src="./profile/stats.svg"
   />

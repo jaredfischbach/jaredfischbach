@@ -20,7 +20,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
-          options: username=jaredfischbach&hide_rank=true&show_icons=true&include_all_commits=true&theme=vision-friendly-dark
+          options: username=jaredfischbach&rank_icon=github&hide_title=true&show=reviews%2Cdiscussions_started%2Cdiscussions_answered%2Cprs_merged%2Cprs_merged_percentage%2Cprs_commented%2Cprs_reviewed%2Cissues_commented%2Ccontributions%2Call_time_contribs&show_icons=true&include_all_commits=true&theme=vision-friendly-dark
           path: profile/stats.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
           fail_on_error: true
@@ -29,10 +29,56 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=jaredfischbach&hide_progress=true&langs_count=10&hide_values=true&theme=vision-friendly-dark&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR
+          options: username=jaredfischbach&layout=compact&hide_title=true&langs_count=12&theme=vision-friendly-dark&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR
           path: profile/top-langs.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
           fail_on_error: true
+
+      - name: Normalize SVG dimensions
+        run: |
+          python3 <<'PY'
+          import re
+          from pathlib import Path
+
+          TARGET_W = 350
+          TARGET_H = 190
+
+          for filename in ["profile/stats.svg", "profile/top-langs.svg"]:
+              path = Path(filename)
+              svg = path.read_text()
+
+              match = re.search(
+                  r'<svg([^>]*?)width="([\d.]+)"([^>]*?)height="([\d.]+)"([^>]*)>',
+                  svg
+              )
+
+              if not match:
+                  raise RuntimeError(
+                      f"Could not determine dimensions of {filename}"
+                  )
+
+              original_w = float(match.group(2))
+              original_h = float(match.group(4))
+
+              svg = re.sub(
+                  r'<svg([^>]*?)width="[\d.]+"([^>]*?)height="[\d.]+"([^>]*)>',
+                  lambda m: (
+                      f'<svg{m.group(1)}width="{TARGET_W}"'
+                      f'{m.group(2)}height="{TARGET_H}"'
+                      f' viewBox="0 0 {original_w:g} {original_h:g}"'
+                      f' preserveAspectRatio="xMidYMid meet"{m.group(3)}>'
+                  ),
+                  svg,
+                  count=1
+              )
+
+              path.write_text(svg)
+
+              print(
+                  f"{filename}: {original_w:g}x{original_h:g} "
+                  f"-> {TARGET_W}x{TARGET_H}"
+              )
+          PY
 
       - name: Commit cards
         run: |

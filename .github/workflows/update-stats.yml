@@ -41,41 +41,83 @@ jobs:
           from pathlib import Path
 
           TARGET_W = 480
-          TARGET_H = 260
+          TARGET_H = 420
 
           for filename in ["profile/stats.svg", "profile/top-langs.svg"]:
               path = Path(filename)
               svg = path.read_text()
 
-              match = re.search(
-                  r'<svg([^>]*?)width="([\d.]+)"([^>]*?)height="([\d.]+)"([^>]*)>',
-                  svg
+              # Extract original width and height.
+              width_match = re.search(
+                  r'<svg\b[^>]*\bwidth="([\d.]+)"', svg
+              )
+              height_match = re.search(
+                  r'<svg\b[^>]*\bheight="([\d.]+)"', svg
               )
 
-              if not match:
+              if not width_match or not height_match:
                   raise RuntimeError(
                       f"Could not determine dimensions of {filename}"
                   )
 
-              original_w = float(match.group(2))
-              original_h = float(match.group(4))
+              original_w = float(width_match.group(1))
+              original_h = float(height_match.group(1))
 
-              svg = re.sub(
-                  r'<svg([^>]*?)width="[\d.]+"([^>]*?)height="[\d.]+"([^>]*)>',
-                  lambda m: (
-                      f'<svg{m.group(1)}width="{TARGET_W}"'
-                      f'{m.group(2)}height="{TARGET_H}"'
-                      f' viewBox="0 0 {original_w:g} {original_h:g}"'
-                      f' preserveAspectRatio="xMidYMid meet"{m.group(3)}>'
-                  ),
-                  svg,
+              # Get only the root <svg> opening tag.
+              root_match = re.search(r'<svg\b[^>]*>', svg)
+
+              if not root_match:
+                  raise RuntimeError(
+                      f"Could not find root SVG in {filename}"
+                  )
+
+              root = root_match.group(0)
+
+              # Replace intrinsic dimensions.
+              root = re.sub(
+                  r'\bwidth="[^"]*"',
+                  f'width="{TARGET_W}"',
+                  root,
                   count=1
+              )
+
+              root = re.sub(
+                  r'\bheight="[^"]*"',
+                  f'height="{TARGET_H}"',
+                  root,
+                  count=1
+              )
+
+              # Remove existing viewBox and preserveAspectRatio.
+              root = re.sub(
+                  r'\s+viewBox="[^"]*"',
+                  '',
+                  root
+              )
+
+              root = re.sub(
+                  r'\s+preserveAspectRatio="[^"]*"',
+                  '',
+                  root
+              )
+
+              # Add exactly one viewBox and preserveAspectRatio.
+              root = root[:-1] + (
+                  f' viewBox="0 0 {original_w:g} {original_h:g}"'
+                  f' preserveAspectRatio="xMidYMid meet">'
+              )
+
+              svg = (
+                  svg[:root_match.start()]
+                  + root
+                  + svg[root_match.end():]
               )
 
               path.write_text(svg)
 
               print(
-                  f"{filename}: {original_w:g}x{original_h:g} "
+                  f"{filename}: "
+                  f"{original_w:g}x{original_h:g} "
                   f"-> {TARGET_W}x{TARGET_H}"
               )
           PY
@@ -83,7 +125,8 @@ jobs:
       - name: Commit cards
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add profile/*.svg
 

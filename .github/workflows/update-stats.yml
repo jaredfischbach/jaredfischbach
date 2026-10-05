@@ -40,8 +40,11 @@ jobs:
           import re
           from pathlib import Path
 
-          # Both cards will have exactly this rendered height.
+          # Shared rendered height for both cards.
           TARGET_H = 350
+
+          # Small space between cards.
+          GAP = 6
 
           files = [
               Path("profile/stats.svg"),
@@ -53,7 +56,7 @@ jobs:
           for path in files:
               svg = path.read_text()
 
-              # Find root SVG.
+              # Find the root SVG element.
               root_match = re.search(r'<svg\b[^>]*>', svg)
 
               if not root_match:
@@ -63,7 +66,7 @@ jobs:
 
               root = root_match.group(0)
 
-              # Read its natural coordinate system.
+              # Read the SVG's natural coordinate system.
               viewbox_match = re.search(
                   r'viewBox="([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)"',
                   root
@@ -74,12 +77,14 @@ jobs:
                       float,
                       viewbox_match.groups()
                   )
+
               else:
-                  # Fall back to width/height if no viewBox exists.
+                  # Fall back to width and height if no viewBox exists.
                   width_match = re.search(
                       r'width="([\d.]+)"',
                       root
                   )
+
                   height_match = re.search(
                       r'height="([\d.]+)"',
                       root
@@ -95,14 +100,16 @@ jobs:
                   vb_w = float(width_match.group(1))
                   vb_h = float(height_match.group(1))
 
-              # Keep natural aspect ratio.
+              # Calculate width automatically from the fixed height
+              # while preserving the card's natural aspect ratio.
               rendered_w = round(
                   vb_w * TARGET_H / vb_h
               )
 
-              # Remove only the OUTER SVG tags.
+              # Remove only the outer SVG opening tag.
               inner = svg[root_match.end():]
 
+              # Remove only the matching outer closing SVG tag.
               closing_match = re.search(
                   r'</svg>\s*$',
                   inner
@@ -124,13 +131,15 @@ jobs:
                   "width": rendered_w,
               })
 
-          # No gap between cards.
-          total_w = sum(
-              card["width"]
-              for card in cards
+          # Total width =
+          # card widths + one GAP between each card.
+          total_w = (
+              sum(card["width"] for card in cards)
+              + GAP * (len(cards) - 1)
           )
 
           groups = []
+
           x = 0
 
           for card in cards:
@@ -148,8 +157,11 @@ jobs:
             </svg>'''
               )
 
-              x += card["width"]
+              # Move to the end of this card,
+              # then add the small gap.
+              x += card["width"] + GAP
 
+          # Build one single SVG containing both cards.
           combined = f'''<svg
             xmlns="http://www.w3.org/2000/svg"
             width="{total_w}"
@@ -164,11 +176,13 @@ jobs:
           '''
 
           output = Path("profile/github-stats.svg")
+
           output.write_text(combined)
 
-          print("Generated:")
+          print("Generated combined SVG:")
           print(f"  {output}")
           print(f"  Size: {total_w}x{TARGET_H}")
+          print(f"  Gap: {GAP}px")
 
           for path, card in zip(files, cards):
               print(

@@ -29,104 +29,158 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=jaredfischbach&layout=compact&hide_title=true&langs_count=20&theme=vision-friendly-dark&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR
+          options: username=jaredfischbach&layout=compact&hide_title=true&langs_count=12&theme=vision-friendly-dark&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR
           path: profile/top-langs.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
           fail_on_error: true
 
-      - name: Normalize SVG dimensions
+      - name: Build combined stats card
         run: |
           python3 <<'PY'
           import re
           from pathlib import Path
 
-          TARGET_W = 400
+          # Both cards will have exactly this rendered height.
           TARGET_H = 350
 
-          for filename in ["profile/stats.svg", "profile/top-langs.svg"]:
-              path = Path(filename)
+          files = [
+              Path("profile/stats.svg"),
+              Path("profile/top-langs.svg"),
+          ]
+
+          cards = []
+
+          for path in files:
               svg = path.read_text()
 
-              # Extract original width and height.
-              width_match = re.search(
-                  r'<svg\b[^>]*\bwidth="([\d.]+)"', svg
-              )
-              height_match = re.search(
-                  r'<svg\b[^>]*\bheight="([\d.]+)"', svg
-              )
-
-              if not width_match or not height_match:
-                  raise RuntimeError(
-                      f"Could not determine dimensions of {filename}"
-                  )
-
-              original_w = float(width_match.group(1))
-              original_h = float(height_match.group(1))
-
-              # Get only the root <svg> opening tag.
+              # Find root SVG.
               root_match = re.search(r'<svg\b[^>]*>', svg)
 
               if not root_match:
                   raise RuntimeError(
-                      f"Could not find root SVG in {filename}"
+                      f"Could not find root SVG in {path}"
                   )
 
               root = root_match.group(0)
 
-              # Replace intrinsic dimensions.
-              root = re.sub(
-                  r'\bwidth="[^"]*"',
-                  f'width="{TARGET_W}"',
-                  root,
-                  count=1
-              )
-
-              root = re.sub(
-                  r'\bheight="[^"]*"',
-                  f'height="{TARGET_H}"',
-                  root,
-                  count=1
-              )
-
-              # Remove existing viewBox and preserveAspectRatio.
-              root = re.sub(
-                  r'\s+viewBox="[^"]*"',
-                  '',
+              # Read its natural coordinate system.
+              viewbox_match = re.search(
+                  r'viewBox="([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)"',
                   root
               )
 
-              root = re.sub(
-                  r'\s+preserveAspectRatio="[^"]*"',
-                  '',
-                  root
+              if viewbox_match:
+                  vb_x, vb_y, vb_w, vb_h = map(
+                      float,
+                      viewbox_match.groups()
+                  )
+              else:
+                  # Fall back to width/height if no viewBox exists.
+                  width_match = re.search(
+                      r'width="([\d.]+)"',
+                      root
+                  )
+                  height_match = re.search(
+                      r'height="([\d.]+)"',
+                      root
+                  )
+
+                  if not width_match or not height_match:
+                      raise RuntimeError(
+                          f"Could not determine dimensions of {path}"
+                      )
+
+                  vb_x = 0
+                  vb_y = 0
+                  vb_w = float(width_match.group(1))
+                  vb_h = float(height_match.group(1))
+
+              # Keep natural aspect ratio.
+              rendered_w = round(
+                  vb_w * TARGET_H / vb_h
               )
 
-              # Add exactly one viewBox and preserveAspectRatio.
-              root = root[:-1] + (
-                  f' viewBox="0 0 {original_w:g} {original_h:g}"'
-                  f' preserveAspectRatio="xMidYMid meet">'
+              # Remove only the OUTER SVG tags.
+              inner = svg[root_match.end():]
+
+              closing_match = re.search(
+                  r'</svg>\s*$',
+                  inner
               )
 
-              svg = (
-                  svg[:root_match.start()]
-                  + root
-                  + svg[root_match.end():]
+              if not closing_match:
+                  raise RuntimeError(
+                      f"Could not find closing SVG tag in {path}"
+                  )
+
+              inner = inner[:closing_match.start()]
+
+              cards.append({
+                  "inner": inner,
+                  "vb_x": vb_x,
+                  "vb_y": vb_y,
+                  "vb_w": vb_w,
+                  "vb_h": vb_h,
+                  "width": rendered_w,
+              })
+
+          # No gap between cards.
+          total_w = sum(
+              card["width"]
+              for card in cards
+          )
+
+          groups = []
+          x = 0
+
+          for card in cards:
+              groups.append(
+                  f'''
+            <svg
+              x="{x}"
+              y="0"
+              width="{card["width"]}"
+              height="{TARGET_H}"
+              viewBox="{card["vb_x"]:g} {card["vb_y"]:g} {card["vb_w"]:g} {card["vb_h"]:g}"
+              preserveAspectRatio="xMidYMid meet"
+            >
+          {card["inner"]}
+            </svg>'''
               )
 
-              path.write_text(svg)
+              x += card["width"]
 
+          combined = f'''<svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="{total_w}"
+            height="{TARGET_H}"
+            viewBox="0 0 {total_w} {TARGET_H}"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="GitHub statistics and top languages"
+          >
+          {''.join(groups)}
+          </svg>
+          '''
+
+          output = Path("profile/github-stats.svg")
+          output.write_text(combined)
+
+          print("Generated:")
+          print(f"  {output}")
+          print(f"  Size: {total_w}x{TARGET_H}")
+
+          for path, card in zip(files, cards):
               print(
-                  f"{filename}: "
-                  f"{original_w:g}x{original_h:g} "
-                  f"-> {TARGET_W}x{TARGET_H}"
+                  f"  {path.name}: "
+                  f"{card['width']}x{TARGET_H}"
               )
           PY
 
       - name: Commit cards
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add profile/*.svg
 

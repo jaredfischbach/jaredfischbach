@@ -29,7 +29,7 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
-          options: username=jaredfischbach&layout=compact&hide_title=true&langs_count=12&theme=vision-friendly-dark&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR
+          options: username=jaredfischbach&layout=compact&hide_title=true&langs_count=20&theme=vision-friendly-dark&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR
           path: profile/top-langs.svg
           token: ${{ secrets.GH_STATS_TOKEN }}
           fail_on_error: true
@@ -40,8 +40,8 @@ jobs:
           import re
           from pathlib import Path
 
-          TARGET_W = 480
-          TARGET_H = 420
+          TARGET_W = 400
+          TARGET_H = 350
 
           for filename in ["profile/stats.svg", "profile/top-langs.svg"]:
               path = Path(filename)

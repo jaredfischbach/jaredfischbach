@@ -1,8 +1,8 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="894"
+  width="900"
   height="350"
-  viewBox="0 0 894 350"
+  viewBox="0 0 900 350"
   preserveAspectRatio="xMidYMid meet"
   role="img"
   aria-label="GitHub statistics and top languages"
@@ -18,7 +18,7 @@
   >
 
         <title id="titleId">Jared R Fischbach&#39;s GitHub Stats, Rank: C</title>
-        <desc id="descId">Total Stars Earned: 1, Total Contributions: 125, Total Commits  : 103, Total PRs: 3, Total PRs Merged: 0, Merged PRs Percentage: 0.00, Total PRs Reviewed: 0, Total Issues: 3, Total Discussions Started: 0, Total Discussions Answered: 0, PRs Commented: 0, PRs Reviewed: 0, Issues Commented: 0, Contributed to (last year): 3, Contributed to (all time): 3</desc>
+        <desc id="descId">Total Stars Earned: 1, Total Contributions: 126, Total Commits  : 104, Total PRs: 3, Total PRs Merged: 0, Merged PRs Percentage: 0.00, Total PRs Reviewed: 0, Total Issues: 3, Total Discussions Started: 0, Total Discussions Answered: 0, PRs Commented: 0, PRs Reviewed: 0, Issues Commented: 0, Contributed to (last year): 3, Contributed to (all time): 3</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -82,7 +82,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 242.56735921851248;
+        stroke-dashoffset: 242.54033473052274;
       }
     }
   
@@ -179,7 +179,7 @@
         x="224.01"
         y="12.5"
         data-testid="contributions"
-      >125</text>
+      >126</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -194,7 +194,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >103</text>
+      >104</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
@@ -383,7 +383,7 @@
       
   </svg>
   <svg
-    x="394"
+    x="400"
     y="0"
     width="500"
     height="350"

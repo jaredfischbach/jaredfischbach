@@ -1,15 +1,14 @@
 
       <svg
         width="480"
-        height="260" viewBox="0 0 467 415" preserveAspectRatio="xMidYMid meet"
-        viewBox="0 0 467 415"
+        height="420"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         aria-labelledby="descId"
-      >
+       viewBox="0 0 467 415" preserveAspectRatio="xMidYMid meet">
         <title id="titleId">Jared R Fischbach&#39;s GitHub Stats, Rank: C</title>
-        <desc id="descId">Total Stars Earned: 1, Total Contributions: 120, Total Commits  : 99, Total PRs: 3, Total PRs Merged: 0, Merged PRs Percentage: 0.00, Total PRs Reviewed: 0, Total Issues: 3, Total Discussions Started: 0, Total Discussions Answered: 0, PRs Commented: 0, PRs Reviewed: 0, Issues Commented: 0, Contributed to (last year): 3, Contributed to (all time): 3</desc>
+        <desc id="descId">Total Stars Earned: 1, Total Contributions: 122, Total Commits  : 99, Total PRs: 3, Total PRs Merged: 0, Merged PRs Percentage: 0.00, Total PRs Reviewed: 0, Total Issues: 3, Total Discussions Started: 0, Total Discussions Answered: 0, PRs Commented: 0, PRs Reviewed: 0, Issues Commented: 0, Contributed to (last year): 3, Contributed to (all time): 3</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -170,7 +169,7 @@
         x="224.01"
         y="12.5"
         data-testid="contributions"
-      >120</text>
+      >122</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">

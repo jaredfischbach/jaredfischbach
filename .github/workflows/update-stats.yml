@@ -40,8 +40,8 @@ jobs:
           import re
           from pathlib import Path
 
-          TARGET_W = 350
-          TARGET_H = 190
+          TARGET_W = 480
+          TARGET_H = 260
 
           for filename in ["profile/stats.svg", "profile/top-langs.svg"]:
               path = Path(filename)

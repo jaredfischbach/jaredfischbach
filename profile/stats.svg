@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Jared R Fischbach&#39;s GitHub Stats, Rank: C</title>
-        <desc id="descId">Total Stars Earned: 1, Total Contributions: 127, Total Commits  : 105, Total PRs: 3, Total PRs Merged: 0, Merged PRs Percentage: 0.00, Total PRs Reviewed: 0, Total Issues: 3, Total Discussions Started: 0, Total Discussions Answered: 0, PRs Commented: 0, PRs Reviewed: 0, Issues Commented: 0, Contributed to (last year): 3, Contributed to (all time): 3</desc>
+        <desc id="descId">Total Stars Earned: 1, Total Contributions: 128, Total Commits  : 105, Total PRs: 4, Total PRs Merged: 2, Merged PRs Percentage: 50.00, Total PRs Reviewed: 0, Total Issues: 3, Total Discussions Started: 0, Total Discussions Answered: 0, PRs Commented: 0, PRs Reviewed: 0, Issues Commented: 0, Contributed to (last year): 3, Contributed to (all time): 3</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 242.5133289679902;
+        stroke-dashoffset: 241.6835418220111;
       }
     }
   
@@ -170,7 +170,7 @@
         x="224.01"
         y="12.5"
         data-testid="contributions"
-      >127</text>
+      >128</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -200,7 +200,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs"
-      >3</text>
+      >4</text>
     </g>
   </g><g transform="translate(0, 100)">
     <g class="stagger" style="animation-delay: 1050ms" transform="translate(25, 0)">
@@ -215,7 +215,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs_merged"
-      >0</text>
+      >2</text>
     </g>
   </g><g transform="translate(0, 125)">
     <g class="stagger" style="animation-delay: 1200ms" transform="translate(25, 0)">
@@ -230,7 +230,7 @@
         x="224.01"
         y="12.5"
         data-testid="prs_merged_percentage"
-      >0.00 %</text>
+      >50.00 %</text>
     </g>
   </g><g transform="translate(0, 150)">
     <g class="stagger" style="animation-delay: 1350ms" transform="translate(25, 0)">

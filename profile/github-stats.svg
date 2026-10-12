@@ -82,7 +82,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 228.6609689614683;
+        stroke-dashoffset: 223.82774949440713;
       }
     }
   
@@ -507,7 +507,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="185.07"
+          width="185.06"
           height="8"
           fill="#3ac486"
         />
@@ -515,7 +515,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="185.07"
+          x="185.06"
           y="0"
           width="30.14"
           height="8"
@@ -525,7 +525,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="215.20999999999998"
+          x="215.2"
           y="0"
           width="17.52"
           height="8"
@@ -535,7 +535,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="222.73"
+          x="222.72"
           y="0"
           width="16.15"
           height="8"
@@ -545,7 +545,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="228.88"
+          x="228.87"
           y="0"
           width="15.469999999999999"
           height="8"
@@ -555,7 +555,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="234.35"
+          x="234.34"
           y="0"
           width="14.59"
           height="8"
@@ -565,7 +565,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="238.94"
+          x="238.93"
           y="0"
           width="13.59"
           height="8"
@@ -575,9 +575,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="242.53"
+          x="242.52"
           y="0"
-          width="11.4"
+          width="11.41"
           height="8"
           fill="#3178c6"
         />
@@ -708,7 +708,7 @@
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#3ac486" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Nextflow 74.03%
+        Nextflow 74.02%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
@@ -792,7 +792,7 @@
     <g class="stagger" style="animation-delay: 750ms">
       <circle cx="5" cy="6" r="5" fill="#f1e05a" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        JavaScript 0.20%
+        JavaScript 0.21%
       </text>
     </g>
   </g><g transform="translate(0, 75)">

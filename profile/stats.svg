@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Jared R Fischbach&#39;s GitHub Stats, Rank: C</title>
-        <desc id="descId">Total Stars Earned: 3, Total Contributions: 237, Total Commits  : 199, Total PRs: 17, Total PRs Merged: 12, Merged PRs Percentage: 70.59, Total PRs Reviewed: 0, Total Issues: 4, Total Discussions Started: 1, Total Discussions Answered: 0, PRs Commented: 2, PRs Reviewed: 0, Issues Commented: 1, Contributed to (last year): 5, Contributed to (all time): 5</desc>
+        <desc id="descId">Total Stars Earned: 3, Total Contributions: 247, Total Commits  : 209, Total PRs: 17, Total PRs Merged: 12, Merged PRs Percentage: 70.59, Total PRs Reviewed: 0, Total Issues: 4, Total Discussions Started: 1, Total Discussions Answered: 0, PRs Commented: 2, PRs Reviewed: 0, Issues Commented: 1, Contributed to (last year): 5, Contributed to (all time): 5</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 220.9644023769986;
+        stroke-dashoffset: 220.7123418611949;
       }
     }
   
@@ -170,7 +170,7 @@
         x="224.01"
         y="12.5"
         data-testid="contributions"
-      >237</text>
+      >247</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -185,7 +185,7 @@
         x="224.01"
         y="12.5"
         data-testid="commits"
-      >199</text>
+      >209</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">

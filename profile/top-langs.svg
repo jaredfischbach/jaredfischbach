@@ -124,7 +124,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="187.83"
+          width="187.81"
           height="8"
           fill="#3ac486"
         />
@@ -132,9 +132,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="187.83"
+          x="187.81"
           y="0"
-          width="28.64"
+          width="28.67"
           height="8"
           fill="#3572A5"
         />
@@ -142,9 +142,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="216.47000000000003"
+          x="216.48000000000002"
           y="0"
-          width="17.47"
+          width="17.46"
           height="8"
           fill="#198CE7"
         />
@@ -154,7 +154,7 @@
           data-testid="lang-progress"
           x="223.94000000000003"
           y="0"
-          width="15.91"
+          width="15.9"
           height="8"
           fill="#e34c26"
         />
@@ -162,7 +162,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="229.85000000000002"
+          x="229.84000000000003"
           y="0"
           width="15.04"
           height="8"
@@ -172,7 +172,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="234.89000000000001"
+          x="234.88000000000002"
           y="0"
           width="14.4"
           height="8"
@@ -182,7 +182,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="239.29000000000002"
+          x="239.28000000000003"
           y="0"
           width="13.42"
           height="8"
@@ -192,7 +192,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="242.71"
+          x="242.70000000000002"
           y="0"
           width="11.36"
           height="8"
@@ -202,7 +202,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="244.07000000000002"
+          x="244.06000000000003"
           y="0"
           width="11.33"
           height="8"
@@ -212,9 +212,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="245.40000000000003"
+          x="245.39000000000004"
           y="0"
-          width="11.03"
+          width="11.04"
           height="8"
           fill="#89e051"
         />
@@ -294,7 +294,7 @@
           data-testid="lang-progress"
           x="249.73000000000002"
           y="0"
-          width="10.11"
+          width="10.1"
           height="8"
           fill="#ff3670"
         />
@@ -302,7 +302,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.84000000000003"
+          x="249.83"
           y="0"
           width="10.09"
           height="8"
@@ -312,7 +312,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.93000000000004"
+          x="249.92000000000002"
           y="0"
           width="10.06"
           height="8"
@@ -332,7 +332,7 @@
     <g class="stagger" style="animation-delay: 600ms">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Python 11.46%
+        Python 11.47%
       </text>
     </g>
   </g><g transform="translate(0, 50)">
@@ -374,7 +374,7 @@
     <g class="stagger" style="animation-delay: 1500ms">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TypeScript 0.55%
+        TypeScript 0.54%
       </text>
     </g>
   </g><g transform="translate(0, 200)">
@@ -388,7 +388,7 @@
     <g class="stagger" style="animation-delay: 1800ms">
       <circle cx="5" cy="6" r="5" fill="#89e051" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Shell 0.41%
+        Shell 0.42%
       </text>
     </g>
   </g></g><g transform="translate(150, 0)"><g transform="translate(0, 0)">

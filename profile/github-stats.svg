@@ -18,7 +18,7 @@
   >
 
         <title id="titleId">Jared R Fischbach&#39;s GitHub Stats, Rank: C</title>
-        <desc id="descId">Total Stars Earned: 3, Total Contributions: 248, Total Commits  : 209, Total PRs: 18, Total PRs Merged: 13, Merged PRs Percentage: 72.22, Total PRs Reviewed: 0, Total Issues: 4, Total Discussions Started: 1, Total Discussions Answered: 0, PRs Commented: 2, PRs Reviewed: 0, Issues Commented: 1, Contributed to (last year): 5, Contributed to (all time): 5</desc>
+        <desc id="descId">Total Stars Earned: 3, Total Contributions: 249, Total Commits  : 209, Total PRs: 18, Total PRs Merged: 13, Merged PRs Percentage: 72.22, Total PRs Reviewed: 0, Total Issues: 4, Total Discussions Started: 1, Total Discussions Answered: 0, PRs Commented: 2, PRs Reviewed: 0, Issues Commented: 1, Contributed to (last year): 5, Contributed to (all time): 5</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -179,7 +179,7 @@
         x="224.01"
         y="12.5"
         data-testid="contributions"
-      >248</text>
+      >249</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -507,7 +507,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="187.85"
+          width="187.91"
           height="8"
           fill="#3ac486"
         />
@@ -515,9 +515,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="187.85"
+          x="187.91"
           y="0"
-          width="28.66"
+          width="28.64"
           height="8"
           fill="#3572A5"
         />
@@ -525,7 +525,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="216.51"
+          x="216.55"
           y="0"
           width="17.46"
           height="8"
@@ -535,7 +535,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="223.97"
+          x="224.01000000000002"
           y="0"
           width="15.9"
           height="8"
@@ -545,9 +545,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="229.87"
+          x="229.91000000000003"
           y="0"
-          width="15.04"
+          width="15.030000000000001"
           height="8"
           fill="#4298b8"
         />
@@ -555,7 +555,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="234.91"
+          x="234.94000000000003"
           y="0"
           width="14.4"
           height="8"
@@ -565,7 +565,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="239.31"
+          x="239.34000000000003"
           y="0"
           width="13.41"
           height="8"
@@ -575,9 +575,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="242.72"
+          x="242.75000000000003"
           y="0"
-          width="11.36"
+          width="11.34"
           height="8"
           fill="#3178c6"
         />
@@ -585,7 +585,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="244.08"
+          x="244.09000000000003"
           y="0"
           width="11.32"
           height="8"
@@ -595,7 +595,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="245.4"
+          x="245.41000000000003"
           y="0"
           width="11.04"
           height="8"
@@ -605,7 +605,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="246.44"
+          x="246.45000000000002"
           y="0"
           width="10.81"
           height="8"
@@ -615,7 +615,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="247.25"
+          x="247.26000000000002"
           y="0"
           width="10.63"
           height="8"
@@ -625,7 +625,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="247.88"
+          x="247.89000000000001"
           y="0"
           width="10.52"
           height="8"
@@ -635,7 +635,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="248.4"
+          x="248.41000000000003"
           y="0"
           width="10.47"
           height="8"
@@ -645,7 +645,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="248.87"
+          x="248.88000000000002"
           y="0"
           width="10.44"
           height="8"
@@ -655,7 +655,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.31"
+          x="249.32000000000002"
           y="0"
           width="10.23"
           height="8"
@@ -665,7 +665,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.54"
+          x="249.55"
           y="0"
           width="10.2"
           height="8"
@@ -675,7 +675,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.73999999999998"
+          x="249.75"
           y="0"
           width="10.1"
           height="8"
@@ -685,7 +685,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.83999999999997"
+          x="249.85"
           y="0"
           width="10.09"
           height="8"
@@ -695,7 +695,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.92999999999998"
+          x="249.94"
           y="0"
           width="10.06"
           height="8"
@@ -708,7 +708,7 @@
     <g class="stagger" style="animation-delay: 450ms">
       <circle cx="5" cy="6" r="5" fill="#3ac486" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Nextflow 75.14%
+        Nextflow 75.16%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
@@ -750,7 +750,7 @@
     <g class="stagger" style="animation-delay: 1350ms">
       <circle cx="5" cy="6" r="5" fill="#ff5a03" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Astro 1.37%
+        Astro 1.36%
       </text>
     </g>
   </g><g transform="translate(0, 175)">

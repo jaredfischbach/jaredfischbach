@@ -507,7 +507,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="188.17"
+          width="188.18"
           height="8"
           fill="#3ac486"
         />
@@ -515,9 +515,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="188.17"
+          x="188.18"
           y="0"
-          width="28.39"
+          width="28.38"
           height="8"
           fill="#3572A5"
         />
